@@ -30,16 +30,16 @@ Book.prototype.readStatus = function () {
 }
 
 function toggleRead(button) {
-  let bookIndex = button.classList[3];
-  myLibrary[bookIndex].readStatus()
-  clearDOM();
+  const list = button.classList
+  let bookIndex = list[list.length - 1];
+  myLibrary[bookIndex].readStatus();
   render();
 }
 
 function remove(book) {
-  let bookIndex = book.classList[3];
+  const list = book.classList
+  let bookIndex = list[list.length - 1];
   myLibrary.splice(bookIndex, 1);
-  clearDOM();
   render();
 }
 
@@ -55,6 +55,7 @@ function createCard(i) {
 }
 
 function render() {
+  clearDOM();
   for (let i = 0; i < myLibrary.length; i++) {
     const card = createCard(i)
     document.querySelector(".row").appendChild(card);
@@ -73,7 +74,6 @@ function createBook() {
 function addBookToLibrary() {
   const book = createBook();
   myLibrary.push(book);
-  clearDOM();
   render();
 }
 
