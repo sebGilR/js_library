@@ -27,16 +27,17 @@ function Book(name, author, pages, read) {
 
 Book.prototype.readStatus = function () {
   this.read = this.read ? false : true;
-  console.log(this.read)
 }
 
 function toggleRead(button) {
-  let bookIndex = button.classList[2];
+  let bookIndex = button.classList[3];
   myLibrary[bookIndex].readStatus()
+  clearDOM();
+  render();
 }
 
 function remove(book) {
-  let bookIndex = book.classList[2];
+  let bookIndex = book.classList[3];
   myLibrary.splice(bookIndex, 1);
   clearDOM();
   render();
@@ -64,7 +65,7 @@ function createBook() {
   const name = form.querySelector("#name").value;
   const author = form.querySelector("#author").value;
   const pages = form.querySelector("#pages").value;
-  const read = form.querySelector("#read").value;
+  const read = form.querySelector("#read").checked;
   const book = new Book(name, author, pages, read);
   return book
 }

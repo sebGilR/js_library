@@ -10,33 +10,42 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- fontawesome 4 -->
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body>
-    <button id="display" onclick="showForm()">ADD NEW</button>
-    <div class="form-wrap hidden">
-        <form id="form">
-            <input type="text" name="name" id="name" placeholder="Name"><br>
-            <input type="text" name="author" id="author" placeholder="Author"><br>
-            <input type="number" name="page" id="pages" placeholder="Number of pages"><br>
-            <input type="checkbox" name="read" id="read" value=true> Read?
-        </form>
-        <button id="save" onclick="addBookToLibrary()">Save</button>
-    </div>
+    <main>
+        <button id="display" class="btn btn-primary" onclick="showForm()">ADD NEW</button>
+        <div class="form-wrap hidden">
+            <form id="form">
+                <i class="fa fa-2x fa-window-close-o" onclick="showForm()" aria-hidden="true"></i>
+                <br>
+                <input type="text" name="name" id="name" placeholder="Name"><br>
+                <hr>
+                <input type="text" name="author" id="author" placeholder="Author"><br>
+                <hr>
+                <input type="number" name="page" id="pages" placeholder="Number of pages"><br>
+                <hr>
+                <input type="checkbox" name="read" id="read"> Read?
+            </form>
+            <button id="save" class="btn btn-success btn-save" onclick="addBookToLibrary()">Save</button>
+        </div>
 
 
-    <div class="container">
-        <div class="row">
-            <div id="card" class="hidden">
-                <div class="book-title"></div>
-                <div class="book-author"></div>
-                <div class="book-pages"></div>
-                <div class="book-read"></div>
-                <button onclick="toggleRead(this)" class="toggleread btn">read-toggle</button>
-                <button onclick="remove(this)" class="remove btn">remove</button>
+        <div class="container">
+            <div class="row">
+                <div id="card" class="hidden">
+                    <div class="book-title"></div>
+                    <div class="book-author"></div>
+                    <div class="book-pages"></div>
+                    <div class="book-read"></div>
+                    <button onclick="toggleRead(this)" class="toggleread btn btn-secondary">read-toggle</button>
+                    <button onclick="remove(this)" class="button remove btn btn-warning">remove</button>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
