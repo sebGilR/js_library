@@ -1,16 +1,17 @@
 let myLibrary = [
 ];
 
-const book1 = new Book("To sell is human", "tony", 200, true);
-const book2 = new Book("The slammer", "john", 350, false);
 
+
+const book1 = new Book("To sell is human", "tony", 200, true);
+const book2 = new Book("The Park", "john", 350, false);
+
+myLibrary.push(book1);
+myLibrary.push(book2);
 
 firebase.database().ref("library").set(
   myLibrary
 );
-
-myLibrary.push(book1);
-myLibrary.push(book2);
 
 const cardClone = document.getElementById("card").cloneNode(true);
 cardClone.classList.remove("hidden");
@@ -60,6 +61,7 @@ function createCard(i) {
 }
 
 function render() {
+  updateFirebase();
   clearDOM();
   for (let i = 0; i < myLibrary.length; i++) {
     const card = createCard(i)
@@ -74,6 +76,12 @@ function createBook() {
   const read = form.querySelector("#read").checked;
   const book = new Book(name, author, pages, read);
   return book
+}
+
+function updateFirebase(){
+  firebase.database().ref("library").set(
+    myLibrary
+  );
 }
 
 function addBookToLibrary() {

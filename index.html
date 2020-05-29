@@ -10,9 +10,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <!-- fontawesome 4 -->
-        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        
+    <!-- fontawesome 4 -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
 </head>
 
 <body>
@@ -60,36 +62,35 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script id="script" src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+<script id="script" src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use -->
+
+<!--   https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDaSzQrgAa79nzp28m_5n3RHH_stvf09f4",
+        authDomain: "books-library-5823a.firebaseapp.com",
+        databaseURL: "https://books-library-5823a.firebaseio.com",
+        projectId: "books-library-5823a",
+        storageBucket: "books-library-5823a.appspot.com",
+        messagingSenderId: "886952582627",
+        appId: "1:886952582627:web:6c04b9dfc20f74b6ca54d6",
+        measurementId: "G-QHGTYRF76F"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
+
 <script src="./index.js"></script>
 
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
-<!-- TODO: Add SDKs for Firebase products that you want to use -->
-
-  <!--   https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
 
 
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyDaSzQrgAa79nzp28m_5n3RHH_stvf09f4",
-    authDomain: "books-library-5823a.firebaseapp.com",
-    databaseURL: "https://books-library-5823a.firebaseio.com",
-    projectId: "books-library-5823a",
-    storageBucket: "books-library-5823a.appspot.com",
-    messagingSenderId: "886952582627",
-    appId: "1:886952582627:web:6c04b9dfc20f74b6ca54d6",
-    measurementId: "G-QHGTYRF76F"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
 
-  
- 
-</script>
 
 </html>
