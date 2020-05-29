@@ -3,7 +3,7 @@ let myLibrary = [
   { name: "The slammer", author: "john", pages: 350, read: false }
 ];
 
-let cardClone = document.getElementById("card").cloneNode(true);
+const cardClone = document.getElementById("card").cloneNode(true);
 const btn = document.getElementById("btn")
 
 
@@ -15,32 +15,49 @@ function Book(name, author, pages, read) {
     this.read = read
 }
 
+Book.prototype.read = function () {
+  this.read = this.read ? console.log(false) : console.log(true);
+}
+
+function toggleRead(button) {
+  let bookIndex = button.classList;
+  console.log(bookIndex)
+}
+
 // Book.prototype.read = function () {
 
 // }
 
+function createCard(i) {
+  let card = cardClone.cloneNode(true);
+  card.querySelector(".book-title").innerHTML = myLibrary[i].name;
+  card.querySelector(".book-author").innerHTML = myLibrary[i].author;
+  card.querySelector(".book-pages").innerHTML = myLibrary[i].pages;
+  card.querySelector(".book-read").innerHTML = myLibrary[i].read;
+  card.querySelector(".toggleread").classList.add(`${i}`)
+  return card
+}
+
 function render() {
   for (let i = 0; i < myLibrary.length; i++) {
-    let card = cardClone.cloneNode(true);
-    card.querySelector(".book-title").innerHTML = myLibrary[i].name;
-    card.querySelector(".book-author").innerHTML = myLibrary[i].author;
-    card.querySelector(".book-pages").innerHTML = myLibrary[i].pages;
-    card.querySelector(".book-read").innerHTML = myLibrary[i].read;
+    const card = createCard(i)
     document.querySelector(".row").appendChild(card);
   }
 }
 
-function addBookToLibrary() {
+function createBook() {
   const form = document.querySelector('#form');
   const name = form.querySelector("#name").value;
   const author = form.querySelector("#author").value;
   const pages = form.querySelector("#pages").value;
   const read = form.querySelector("#read").value;
-
   const book = new Book(name, author, pages, read);
+  return book
+}
 
+function addBookToLibrary() {
+  const book = createBook()
   myLibrary.push(book)
-  console.log(myLibrary)
   render();
 }
 
