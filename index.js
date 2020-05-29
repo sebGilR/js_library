@@ -1,12 +1,21 @@
 let myLibrary = [];
 
-const db = firebase.database().ref('/library/')
+// const book1 = new Book("To tell is human", "tony", 200, true);
+// const book2 = new Book("The Park", "john", 350, false);
 
-const book1 = new Book("To tell is human", "tony", 200, true);
-const book2 = new Book("The Park", "john", 350, false);
+// myLibrary.push(book1);
+// myLibrary.push(book2);
 
-myLibrary.push(book1);
-myLibrary.push(book2);
+const readDB = function () {
+  myLibrary = [];
+  firebase.database().ref('/library/').once('value').then(function (snapshot) {
+    let arr = Object.entries(snapshot.val())
+
+    for (let i = 0; i < arr.length; i++) {
+      myLibrary.push(arr[i][1])
+    }
+  });
+}
 
 const sendToDb = function () {
   console.log(myLibrary)
@@ -16,7 +25,6 @@ const sendToDb = function () {
     );
   }
 }
-
 
 const cardClone = document.getElementById("card").cloneNode(true);
 cardClone.classList.remove("hidden");
@@ -67,10 +75,14 @@ function createCard(i) {
 
 function render() {
   clearDOM();
+  console.log(myLibrary);
   for (let i = 0; i < myLibrary.length; i++) {
     const card = createCard(i)
     document.querySelector(".row").appendChild(card);
   }
+
+  readDB()
+  sendToDb();
 }
 
 function createBook() {
