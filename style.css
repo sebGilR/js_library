@@ -10,8 +10,18 @@ main{
 .hidden {
     display: none;
 }
+/* app title */
+h1, h2, h3 {
+    text-align: center;
+}
 
 /* ADD NEW FORM */
+
+.add-new {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-%100);
+}
 
 .form-wrap {
     padding: 25px;
