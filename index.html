@@ -13,23 +13,27 @@
 </head>
 
 <body>
-    <button>ADD NEW</button>
-    <form id="form">
-        <input type="text" name="name" id="name" placeholder="Name"><br>
-        <input type="text" name="author" id="author" placeholder="Author"><br>
-        <input type="number" name="page" id="pages" placeholder="Number of pages"><br>
-        <input type="checkbox" name="read" id="read" value="true"> Read?
+    <button id="display" onclick="showForm()">ADD NEW</button>
+    <div class="form-wrap hidden">
+        <form id="form">
+            <input type="text" name="name" id="name" placeholder="Name"><br>
+            <input type="text" name="author" id="author" placeholder="Author"><br>
+            <input type="number" name="page" id="pages" placeholder="Number of pages"><br>
+            <input type="checkbox" name="read" id="read" value=true> Read?
+        </form>
         <button id="save" onclick="addBookToLibrary()">Save</button>
-    </form>
+    </div>
+
 
     <div class="container">
         <div class="row">
-            <div id="card">
+            <div id="card" class="hidden">
                 <div class="book-title"></div>
                 <div class="book-author"></div>
                 <div class="book-pages"></div>
                 <div class="book-read"></div>
-                <button onclick="toggleRead(this)" class="toggleread btn 0">read-toggle</button>
+                <button onclick="toggleRead(this)" class="toggleread btn">read-toggle</button>
+                <button onclick="remove(this)" class="remove btn">remove</button>
             </div>
         </div>
     </div>

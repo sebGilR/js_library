@@ -1,12 +1,22 @@
 let myLibrary = [
-  { name: "To sell is human", author: "tony", pages: 200, read: true },
-  { name: "The slammer", author: "john", pages: 350, read: false }
 ];
 
+let book1 = new Book("To sell is human", "tony", 200, true);
+let book2 = new Book("The slammer", "john", 350, false);
+
+myLibrary.push(book1);
+myLibrary.push(book2);
+
 const cardClone = document.getElementById("card").cloneNode(true);
-const btn = document.getElementById("btn")
+cardClone.classList.remove("hidden");
+const btn = document.getElementById("btn");
+const displayBtn = document.getElementById("display");
+const form = document.querySelector('#form');
 
-
+function showForm() {
+  const form_wrap = document.querySelector('.form-wrap');
+  form_wrap.classList.toggle("hidden");
+}
 
 function Book(name, author, pages, read) {
   this.name = name,
@@ -15,18 +25,22 @@ function Book(name, author, pages, read) {
     this.read = read
 }
 
-Book.prototype.read = function () {
-  this.read = this.read ? console.log(false) : console.log(true);
+Book.prototype.readStatus = function () {
+  this.read = this.read ? false : true;
+  console.log(this.read)
 }
 
 function toggleRead(button) {
-  let bookIndex = button.classList;
-  console.log(bookIndex)
+  let bookIndex = button.classList[2];
+  myLibrary[bookIndex].readStatus()
 }
 
-// Book.prototype.read = function () {
-
-// }
+function remove(book) {
+  let bookIndex = book.classList[2];
+  myLibrary.splice(bookIndex, 1);
+  clearDOM();
+  render();
+}
 
 function createCard(i) {
   let card = cardClone.cloneNode(true);
@@ -34,7 +48,8 @@ function createCard(i) {
   card.querySelector(".book-author").innerHTML = myLibrary[i].author;
   card.querySelector(".book-pages").innerHTML = myLibrary[i].pages;
   card.querySelector(".book-read").innerHTML = myLibrary[i].read;
-  card.querySelector(".toggleread").classList.add(`${i}`)
+  card.querySelector(".toggleread").classList.add(`${i}`);
+  card.querySelector(".remove").classList.add(`${i}`)
   return card
 }
 
@@ -46,7 +61,6 @@ function render() {
 }
 
 function createBook() {
-  const form = document.querySelector('#form');
   const name = form.querySelector("#name").value;
   const author = form.querySelector("#author").value;
   const pages = form.querySelector("#pages").value;
@@ -56,10 +70,14 @@ function createBook() {
 }
 
 function addBookToLibrary() {
-  const book = createBook()
-  myLibrary.push(book)
+  const book = createBook();
+  myLibrary.push(book);
+  clearDOM();
   render();
 }
 
-document.addEventListener('onload', render());
+function clearDOM() {
+  document.querySelector(".row").innerHTML = "";
+}
 
+window.addEventListener(onload, render())
