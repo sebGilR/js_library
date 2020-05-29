@@ -13,13 +13,22 @@
 </head>
 
 <body>
+    <button>ADD NEW</button>
+    <form id="form">
+        <input type="text" name="name" id="name" placeholder="Name"><br>
+        <input type="text" name="author" id="author" placeholder="Author"><br>
+        <input type="number" name="page" id="pages" placeholder="Number of pages"><br>
+        <input type="checkbox" name="read" id="read" value="true"> Read?
+        <button id="save" onclick="addBookToLibrary()">Save</button>
+    </form>
+
     <div class="container">
         <div class="row">
             <div id="card">
-                <div class="book-title">test-title</div>
-                <div class="book-author">test2</div>
-                <div class="book-pages">test3</div>
-                <div class="book-read">test4</div>
+                <div class="book-title"></div>
+                <div class="book-author"></div>
+                <div class="book-pages"></div>
+                <div class="book-read"></div>
             </div>
         </div>
     </div>
@@ -36,4 +45,5 @@
         crossorigin="anonymous"></script>
 </body>
 <script src="./index.js"></script>
+
 </html>
