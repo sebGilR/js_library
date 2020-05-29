@@ -1,8 +1,13 @@
 let myLibrary = [
 ];
 
-let book1 = new Book("To sell is human", "tony", 200, true);
-let book2 = new Book("The slammer", "john", 350, false);
+const book1 = new Book("To sell is human", "tony", 200, true);
+const book2 = new Book("The slammer", "john", 350, false);
+
+
+firebase.database().ref("library").set(
+  myLibrary
+);
 
 myLibrary.push(book1);
 myLibrary.push(book2);
