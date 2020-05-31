@@ -64,7 +64,9 @@ function toggleRead(button) {
   render();
 }
 
-document.querySelector('.toggleread').addEventListener('click', toggleRead);
+document.querySelectorAll('.toggleread').forEach(item => {
+  item.addEventListener('click', toggleRead);
+});
 
 function remove(book) {
   const list = book.classList;
@@ -73,7 +75,9 @@ function remove(book) {
   render();
 }
 
-document.querySelector('.remove').addEventListener('click', remove);
+document.querySelectorAll('.remove').forEach(item => {
+  item.addEventListener('click', remove);
+});
 
 function createBook() {
   const errorMsg = form.querySelector('.error');
