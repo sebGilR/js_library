@@ -87,8 +87,6 @@ function createBook() {
   const read = form.querySelector('#read').checked;
   const fields = [name, author, pages];
   let valid = true;
-  // let result = /^[a-zA-Z ]+$/.test('John Doe');
-  // console.log(result);
 
   for (let i = 0; i < fields.length; i += 1) {
     if (fields[i].value === '') {
