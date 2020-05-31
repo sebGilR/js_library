@@ -57,7 +57,14 @@ function createCard(i) {
 function render() {
   clearDOM();
   for (let i = 0; i < myLibrary.length; i++) {
-    const card = createCard(i)
+    const card = createCard(i);
+    const readStatus = card.querySelector(".book-read").textContent;
+    let readToggle = card.querySelector(".toggleread");
+    if (readStatus === "false") {
+      readToggle.textContent = "Read"
+    } else {
+      readToggle.textContent = "Unread"
+    }
     document.querySelector(".row").appendChild(card);
   }
 }
