@@ -1,17 +1,11 @@
 let myLibrary = [
 ];
 
-
-
 const book1 = new Book("To sell is human", "tony", 200, true);
 const book2 = new Book("The Park", "john", 350, false);
 
 myLibrary.push(book1);
 myLibrary.push(book2);
-
-firebase.database().ref("library").set(
-  myLibrary
-);
 
 const cardClone = document.getElementById("card").cloneNode(true);
 cardClone.classList.remove("hidden");
@@ -61,7 +55,6 @@ function createCard(i) {
 }
 
 function render() {
-  updateFirebase();
   clearDOM();
   for (let i = 0; i < myLibrary.length; i++) {
     const card = createCard(i)
@@ -70,23 +63,41 @@ function render() {
 }
 
 function createBook() {
-  const name = form.querySelector("#name").value;
-  const author = form.querySelector("#author").value;
-  const pages = form.querySelector("#pages").value;
+  const errorMsg = form.querySelector(".error");
+  const name = form.querySelector("#name");
+  const author = form.querySelector("#author");
+  const pages = form.querySelector("#pages");
   const read = form.querySelector("#read").checked;
-  const book = new Book(name, author, pages, read);
-  return book
-}
+  const fields = [name, author, pages];
+  let valid = true;
+  // let result = /^[a-zA-Z ]+$/.test('John Doe');
+  // console.log(result);
 
-function updateFirebase(){
-  firebase.database().ref("library").set(
-    myLibrary
-  );
+  for (let i = 0; i < fields.length; i++) {
+    if (fields[i].value === "") {
+      valid = false;
+      console.log(fields[i])
+      fields[i].style.borderColor = "red";
+    } else {
+      fields[i].style.borderColor = "black";
+    }
+  }
+
+  if (!valid) {
+    errorMsg.classList.toggle("hidden");
+    return false
+  } else {
+    const book = new Book(name.value, author.value, pages.value, read);
+    showForm()
+    return book
+  }
 }
 
 function addBookToLibrary() {
   const book = createBook();
-  myLibrary.push(book);
+  if (book) {
+    myLibrary.push(book);
+  }
   render();
 }
 
