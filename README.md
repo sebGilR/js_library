@@ -10,10 +10,10 @@
 
 ## Live Demo
 
-TBA
+[Live Demo](https://rawcdn.githack.com/sebGilR/js_library/96435450220c7f5839229d3d9fb0f3b50d291c2c/index.html)
 
 ## Features / Usage
-
+- Two books added by default for the demo.
 - Click "Add new" to add a new book using the provided form.
 - After including the required data, hit "Save".
 - The book is displayed. If the page is reloaded previously added data is removed since there is no db or local storage set up.
@@ -41,7 +41,7 @@ TBA
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/sebGilR/js_library/issues).
 
 ## Show your support
 
