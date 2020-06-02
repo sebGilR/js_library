@@ -1,0 +1,60 @@
+main {
+  position: relative;
+}
+
+#card {
+  border: 3px solid salmon;
+  padding: 20px;
+  margin: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* app title */
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+/* ADD NEW FORM */
+
+.add-new {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-%100);
+}
+
+.form-wrap {
+  padding: 25px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-box-shadow: 0 7px 39px 0 rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 7px 39px 0 rgba(0, 0, 0, 0.75);
+  box-shadow: 0 7px 39px 0 rgba(0, 0, 0, 0.75);
+}
+
+.form * {
+  border: none !important;
+  margin: 10px;
+}
+
+.fa-window-close-o {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.btn-save {
+  width: 100% !important;
+}
+
+.container {
+  margin-top: 3em;
+}
