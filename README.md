@@ -16,12 +16,12 @@
 - Two books added by default for the demo.
 - Click "Add new" to add a new book using the provided form.
 - After including the required data, hit "Save".
-- The book is displayed. If the page is reloaded previously added data is removed since there is no db or local storage set up.
+- The book is displayed. If the page is reloaded previously added data is removed since there is no DB or local storage set up.
 
 ## Potential features
 
 - Persistent data storage.
-- Organize by categories (bookshelfs).
+- Organize by categories (bookshelves).
 
 ## Authors
 
