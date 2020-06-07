@@ -2,6 +2,10 @@
 
 > This web app allows the user to add and remove books, and also toggle between read and unread status for added books.
 
+## Screenshot
+
+![screenshot](screenshot.png)
+
 ## Built With
 
 - HTML + CSS
